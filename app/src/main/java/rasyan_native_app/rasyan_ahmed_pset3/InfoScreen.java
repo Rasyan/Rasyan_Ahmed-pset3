@@ -71,11 +71,10 @@ public class InfoScreen extends AppCompatActivity {
             case R.id.add:
 
                 SharedPreferences sharedPref = this.getSharedPreferences(
-                        "PREFENCESsssss", Context.MODE_PRIVATE);
+                        "Data", Context.MODE_PRIVATE);
 
                 boolean duplicate = false;
                 try {
-                    System.out.println("bammm" + sharedPref.getBoolean("init", false));
                     String titlesStr = sharedPref.getString("titles", null);
                     String postersStr = sharedPref.getString("posters", null);
                     String yearsStr = sharedPref.getString("years", null);
@@ -84,7 +83,7 @@ public class InfoScreen extends AppCompatActivity {
                     JSONArray postersJs = new JSONArray(postersStr);
                     JSONArray yearsJs = new JSONArray(yearsStr);
                     JSONArray idsJs = new JSONArray(idsStr);
-                    System.out.println("pandaaa");
+
 
                     if (!titlesJs.isNull(0)) {
                         ArrayList<String> titles = new ArrayList<String>();
@@ -93,7 +92,6 @@ public class InfoScreen extends AppCompatActivity {
                         ArrayList<String> ids = new ArrayList<String>();
 
 
-                        System.out.println("zepdos");
                         int len = titlesJs.length();
                         for (int i = 0; i < len; i++) {
                             String id = idsJs.get(i).toString();
@@ -136,15 +134,13 @@ public class InfoScreen extends AppCompatActivity {
                         posters.add(info[1]);
                         years.add(info[2]);
                         ids.add(info[3]);
-                        System.out.println("pandaaaa" + titles.toString());
 
-                        System.out.println("pandaz");
+
                         titlesJs = new JSONArray(titles);
                         postersJs = new JSONArray(posters);
                         yearsJs = new JSONArray(years);
                         idsJs = new JSONArray(ids);
 
-                        System.out.println("panda");
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putBoolean("init", true);
 
