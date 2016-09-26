@@ -37,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         this.names = names;
         this.years = years;
 
-
+        // if an item in the list is clicked, go to its info page
         listener = new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -47,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             }
         };
     }
-
+    // make the viewholder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView myName;
         public TextView myTime;
@@ -61,7 +61,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         }
     }
-
+    // choose singleview as viewholder
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int position) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singleview, parent, false);

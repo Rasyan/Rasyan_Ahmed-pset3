@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * Created by Rasyan on 23-9-2016.
+ * a simple class that holds the data of a search result in 4 arrays
  */
 
 public class SearchResult implements Serializable {
@@ -16,6 +17,7 @@ public class SearchResult implements Serializable {
     private String[] years;
     private String[] ids;
 
+    //constructs the array from the jsons
     public SearchResult(JSONArray jsons, int size) {
         JSONObject json;
         posters = new String[size];

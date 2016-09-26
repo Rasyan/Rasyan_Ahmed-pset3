@@ -30,6 +30,7 @@ public class Apigetter extends AsyncTask<String,Integer,String> {
     @Override
     protected String doInBackground(String... params) {
         String imdb;
+        // use the right link depending on the type passed to this class
         type = params[0];
         if (Objects.equals(type, "search")) {
             imdb = "http://www.omdbapi.com/?s=%s";
@@ -38,6 +39,7 @@ public class Apigetter extends AsyncTask<String,Integer,String> {
         }
 
         try {
+            //get the data from the web
             String utf = URLEncoder.encode(params[1],"UTF-8");
             URL url = new URL(String.format(imdb,utf));
             System.out.println("stringURL = " + url.toString());
@@ -59,10 +61,12 @@ public class Apigetter extends AsyncTask<String,Integer,String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        System.out.println("akaka" + json.toString());
+        // switch case to differentiate the types
         switch (type) {
             case "search":
                 try {
+                    // make a search class with the info gottent from the web
+                    // and produce an intent to show search results
                     if (json.getString("Response").equals("True")) {
                         SearchResult searchresult = new SearchResult(json.getJSONArray("Search")
                                 , Integer.parseInt(json.getString("totalResults")));
@@ -70,6 +74,7 @@ public class Apigetter extends AsyncTask<String,Integer,String> {
                         intent.putExtra("searched", searchresult);
                         context.startActivity(intent);
                     } else {
+                        // if the search failed, show error message and dont produce an intent
                         Toast.makeText(context, json.getString("Error"),
                                 Toast.LENGTH_SHORT).show();
                     }
@@ -78,6 +83,7 @@ public class Apigetter extends AsyncTask<String,Integer,String> {
                 }
                 return;
             case "id":
+                //go to the info screen giving the gotten info as extra
                 Intent intent= new Intent(context, InfoScreen.class);
                 intent.putExtra("json", json.toString());
                 context.startActivity(intent);
