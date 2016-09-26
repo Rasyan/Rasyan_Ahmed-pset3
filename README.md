@@ -12,3 +12,5 @@ in both cases the individual items in the recyclerview can be pressed to go to t
 
 The info screen activity shows more detailed information about the movie.
 it has a button that either deletes the movie from your faforites if it is already in it or adds it to it if its not.
+
+![example1](https://github.com/Rasyan/Rasyan_ahmed-pset3/blob/master/Doc/example.png)
