@@ -35,7 +35,6 @@ public class SearchResult implements Serializable {
         }
 
     }
-
     public String[] getPosters() {
         return posters;
     }

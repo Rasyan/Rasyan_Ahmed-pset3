@@ -87,10 +87,10 @@ public class InfoScreen extends AppCompatActivity {
                     System.out.println("pandaaa");
 
                     if (!titlesJs.isNull(0)) {
-                        ArrayList titles = new ArrayList();
-                        ArrayList posters = new ArrayList();
-                        ArrayList years = new ArrayList();
-                        ArrayList ids = new ArrayList();
+                        ArrayList<String> titles = new ArrayList<String>();
+                        ArrayList<String> posters = new ArrayList<String>();
+                        ArrayList<String> years = new ArrayList<String>();
+                        ArrayList<String> ids = new ArrayList<String>();
 
 
                         System.out.println("zepdos");
@@ -126,10 +126,10 @@ public class InfoScreen extends AppCompatActivity {
                         editor.commit();
                     } else {
 
-                        ArrayList titles = new ArrayList();
-                        ArrayList posters = new ArrayList();
-                        ArrayList years = new ArrayList();
-                        ArrayList ids = new ArrayList();
+                        ArrayList<String> titles = new ArrayList<String>();
+                        ArrayList<String> posters = new ArrayList<String>();
+                        ArrayList<String> years = new ArrayList<String>();
+                        ArrayList<String> ids = new ArrayList<String>();
 
 
                         titles.add(info[0]);
@@ -166,7 +166,6 @@ public class InfoScreen extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),info[0] +
                             " removed from favorites", Toast.LENGTH_SHORT).show();
                 }
-
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
